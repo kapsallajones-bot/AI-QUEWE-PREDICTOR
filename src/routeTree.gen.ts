@@ -19,6 +19,7 @@ import { Route as DisplayRouteImport } from './routes/display'
 import { Route as QueueRouteImport } from './routes/queue'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as TicketPrintRouteImport } from './routes/ticket-print'
 import { Route as TicketsRouteImport } from './routes/tickets'
 
 const IndexRoute = IndexRouteImport.update({
@@ -71,6 +72,11 @@ const SettingsRoute = SettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TicketPrintRoute = TicketPrintRouteImport.update({
+  id: '/ticket-print',
+  path: '/ticket-print',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TicketsRoute = TicketsRouteImport.update({
   id: '/tickets',
   path: '/tickets',
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/queue': typeof QueueRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
+  '/ticket-print': typeof TicketPrintRoute
   '/tickets': typeof TicketsRoute
 }
 export interface FileRoutesByTo {
@@ -101,6 +108,7 @@ export interface FileRoutesByTo {
   '/queue': typeof QueueRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
+  '/ticket-print': typeof TicketPrintRoute
   '/tickets': typeof TicketsRoute
 }
 export interface FileRoutesById {
@@ -115,6 +123,7 @@ export interface FileRoutesById {
   '/queue': typeof QueueRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
+  '/ticket-print': typeof TicketPrintRoute
   '/tickets': typeof TicketsRoute
 }
 export interface FileRouteTypes {
@@ -130,6 +139,7 @@ export interface FileRouteTypes {
     | '/queue'
     | '/reports'
     | '/settings'
+    | '/ticket-print'
     | '/tickets'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -143,6 +153,7 @@ export interface FileRouteTypes {
     | '/queue'
     | '/reports'
     | '/settings'
+    | '/ticket-print'
     | '/tickets'
   id:
     | '__root__'
@@ -156,6 +167,7 @@ export interface FileRouteTypes {
     | '/queue'
     | '/reports'
     | '/settings'
+    | '/ticket-print'
     | '/tickets'
   fileRoutesById: FileRoutesById
 }
@@ -170,6 +182,7 @@ export interface RootRouteChildren {
   QueueRoute: typeof QueueRoute
   ReportsRoute: typeof ReportsRoute
   SettingsRoute: typeof SettingsRoute
+  TicketPrintRoute: typeof TicketPrintRoute
   TicketsRoute: typeof TicketsRoute
 }
 
@@ -245,6 +258,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ticket-print': {
+      id: '/ticket-print'
+      path: '/ticket-print'
+      fullPath: '/ticket-print'
+      preLoaderRoute: typeof TicketPrintRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tickets': {
       id: '/tickets'
       path: '/tickets'
@@ -266,6 +286,7 @@ const rootRouteChildren: RootRouteChildren = {
   QueueRoute: QueueRoute,
   ReportsRoute: ReportsRoute,
   SettingsRoute: SettingsRoute,
+  TicketPrintRoute: TicketPrintRoute,
   TicketsRoute: TicketsRoute,
 }
 export const routeTree = rootRouteImport
