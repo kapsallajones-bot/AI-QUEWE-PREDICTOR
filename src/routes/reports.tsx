@@ -177,7 +177,7 @@ function FilterSelect({ label, items }: { label: string; items: string[] }) {
   return (
     <div className="space-y-2">
       <Label>{label}</Label>
-      <Select defaultValue={items[0]}>
+      <Select defaultValue={items[0] ?? ""}>
         <SelectTrigger>
           <SelectValue />
         </SelectTrigger>

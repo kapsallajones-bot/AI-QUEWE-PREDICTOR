@@ -10,17 +10,25 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AiPredictionRouteImport } from './routes/ai-prediction'
 import { Route as AnnounceRouteImport } from './routes/announce'
 import { Route as CashierDeskRouteImport } from './routes/cashier-desk'
 import { Route as CashiersRouteImport } from './routes/cashiers'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DisplayRouteImport } from './routes/display'
 import { Route as QueueRouteImport } from './routes/queue'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as TicketsRouteImport } from './routes/tickets'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiPredictionRoute = AiPredictionRouteImport.update({
+  id: '/ai-prediction',
+  path: '/ai-prediction',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AnnounceRoute = AnnounceRouteImport.update({
@@ -53,6 +61,16 @@ const QueueRoute = QueueRouteImport.update({
   path: '/queue',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TicketsRoute = TicketsRouteImport.update({
   id: '/tickets',
   path: '/tickets',
@@ -61,76 +79,97 @@ const TicketsRoute = TicketsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ai-prediction': typeof AiPredictionRoute
   '/announce': typeof AnnounceRoute
   '/cashier-desk': typeof CashierDeskRoute
   '/cashiers': typeof CashiersRoute
   '/dashboard': typeof DashboardRoute
   '/display': typeof DisplayRoute
   '/queue': typeof QueueRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
   '/tickets': typeof TicketsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ai-prediction': typeof AiPredictionRoute
   '/announce': typeof AnnounceRoute
   '/cashier-desk': typeof CashierDeskRoute
   '/cashiers': typeof CashiersRoute
   '/dashboard': typeof DashboardRoute
   '/display': typeof DisplayRoute
   '/queue': typeof QueueRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
   '/tickets': typeof TicketsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ai-prediction': typeof AiPredictionRoute
   '/announce': typeof AnnounceRoute
   '/cashier-desk': typeof CashierDeskRoute
   '/cashiers': typeof CashiersRoute
   '/dashboard': typeof DashboardRoute
   '/display': typeof DisplayRoute
   '/queue': typeof QueueRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
   '/tickets': typeof TicketsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/ai-prediction'
     | '/announce'
     | '/cashier-desk'
     | '/cashiers'
     | '/dashboard'
     | '/display'
     | '/queue'
+    | '/reports'
+    | '/settings'
     | '/tickets'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/ai-prediction'
     | '/announce'
     | '/cashier-desk'
     | '/cashiers'
     | '/dashboard'
     | '/display'
     | '/queue'
+    | '/reports'
+    | '/settings'
     | '/tickets'
   id:
     | '__root__'
     | '/'
+    | '/ai-prediction'
     | '/announce'
     | '/cashier-desk'
     | '/cashiers'
     | '/dashboard'
     | '/display'
     | '/queue'
+    | '/reports'
+    | '/settings'
     | '/tickets'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AiPredictionRoute: typeof AiPredictionRoute
   AnnounceRoute: typeof AnnounceRoute
   CashierDeskRoute: typeof CashierDeskRoute
   CashiersRoute: typeof CashiersRoute
   DashboardRoute: typeof DashboardRoute
   DisplayRoute: typeof DisplayRoute
   QueueRoute: typeof QueueRoute
+  ReportsRoute: typeof ReportsRoute
+  SettingsRoute: typeof SettingsRoute
   TicketsRoute: typeof TicketsRoute
 }
 
@@ -141,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-prediction': {
+      id: '/ai-prediction'
+      path: '/ai-prediction'
+      fullPath: '/ai-prediction'
+      preLoaderRoute: typeof AiPredictionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/announce': {
@@ -185,6 +231,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QueueRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tickets': {
       id: '/tickets'
       path: '/tickets'
@@ -197,12 +257,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AiPredictionRoute: AiPredictionRoute,
   AnnounceRoute: AnnounceRoute,
   CashierDeskRoute: CashierDeskRoute,
   CashiersRoute: CashiersRoute,
   DashboardRoute: DashboardRoute,
   DisplayRoute: DisplayRoute,
   QueueRoute: QueueRoute,
+  ReportsRoute: ReportsRoute,
+  SettingsRoute: SettingsRoute,
   TicketsRoute: TicketsRoute,
 }
 export const routeTree = rootRouteImport
