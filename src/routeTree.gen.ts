@@ -10,13 +10,27 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnnounceRouteImport } from './routes/announce'
+import { Route as CashierDeskRouteImport } from './routes/cashier-desk'
 import { Route as CashiersRouteImport } from './routes/cashiers'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DisplayRouteImport } from './routes/display'
 import { Route as QueueRouteImport } from './routes/queue'
+import { Route as TicketsRouteImport } from './routes/tickets'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnnounceRoute = AnnounceRouteImport.update({
+  id: '/announce',
+  path: '/announce',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CashierDeskRoute = CashierDeskRouteImport.update({
+  id: '/cashier-desk',
+  path: '/cashier-desk',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CashiersRoute = CashiersRouteImport.update({
@@ -29,44 +43,95 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DisplayRoute = DisplayRouteImport.update({
+  id: '/display',
+  path: '/display',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QueueRoute = QueueRouteImport.update({
   id: '/queue',
   path: '/queue',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TicketsRoute = TicketsRouteImport.update({
+  id: '/tickets',
+  path: '/tickets',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/announce': typeof AnnounceRoute
+  '/cashier-desk': typeof CashierDeskRoute
   '/cashiers': typeof CashiersRoute
   '/dashboard': typeof DashboardRoute
+  '/display': typeof DisplayRoute
   '/queue': typeof QueueRoute
+  '/tickets': typeof TicketsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/announce': typeof AnnounceRoute
+  '/cashier-desk': typeof CashierDeskRoute
   '/cashiers': typeof CashiersRoute
   '/dashboard': typeof DashboardRoute
+  '/display': typeof DisplayRoute
   '/queue': typeof QueueRoute
+  '/tickets': typeof TicketsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/announce': typeof AnnounceRoute
+  '/cashier-desk': typeof CashierDeskRoute
   '/cashiers': typeof CashiersRoute
   '/dashboard': typeof DashboardRoute
+  '/display': typeof DisplayRoute
   '/queue': typeof QueueRoute
+  '/tickets': typeof TicketsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cashiers' | '/dashboard' | '/queue'
+  fullPaths:
+    | '/'
+    | '/announce'
+    | '/cashier-desk'
+    | '/cashiers'
+    | '/dashboard'
+    | '/display'
+    | '/queue'
+    | '/tickets'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cashiers' | '/dashboard' | '/queue'
-  id: '__root__' | '/' | '/cashiers' | '/dashboard' | '/queue'
+  to:
+    | '/'
+    | '/announce'
+    | '/cashier-desk'
+    | '/cashiers'
+    | '/dashboard'
+    | '/display'
+    | '/queue'
+    | '/tickets'
+  id:
+    | '__root__'
+    | '/'
+    | '/announce'
+    | '/cashier-desk'
+    | '/cashiers'
+    | '/dashboard'
+    | '/display'
+    | '/queue'
+    | '/tickets'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnnounceRoute: typeof AnnounceRoute
+  CashierDeskRoute: typeof CashierDeskRoute
   CashiersRoute: typeof CashiersRoute
   DashboardRoute: typeof DashboardRoute
+  DisplayRoute: typeof DisplayRoute
   QueueRoute: typeof QueueRoute
+  TicketsRoute: typeof TicketsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -76,6 +141,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/announce': {
+      id: '/announce'
+      path: '/announce'
+      fullPath: '/announce'
+      preLoaderRoute: typeof AnnounceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cashier-desk': {
+      id: '/cashier-desk'
+      path: '/cashier-desk'
+      fullPath: '/cashier-desk'
+      preLoaderRoute: typeof CashierDeskRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cashiers': {
@@ -92,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/display': {
+      id: '/display'
+      path: '/display'
+      fullPath: '/display'
+      preLoaderRoute: typeof DisplayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/queue': {
       id: '/queue'
       path: '/queue'
@@ -99,14 +185,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QueueRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tickets': {
+      id: '/tickets'
+      path: '/tickets'
+      fullPath: '/tickets'
+      preLoaderRoute: typeof TicketsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnnounceRoute: AnnounceRoute,
+  CashierDeskRoute: CashierDeskRoute,
   CashiersRoute: CashiersRoute,
   DashboardRoute: DashboardRoute,
+  DisplayRoute: DisplayRoute,
   QueueRoute: QueueRoute,
+  TicketsRoute: TicketsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
