@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AiPredictionRouteImport } from './routes/ai-prediction'
 import { Route as AnnounceRouteImport } from './routes/announce'
+import { Route as BookRouteImport } from './routes/book'
 import { Route as CashierDeskRouteImport } from './routes/cashier-desk'
 import { Route as CashiersRouteImport } from './routes/cashiers'
 import { Route as DashboardRouteImport } from './routes/dashboard'
@@ -35,6 +36,11 @@ const AiPredictionRoute = AiPredictionRouteImport.update({
 const AnnounceRoute = AnnounceRouteImport.update({
   id: '/announce',
   path: '/announce',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CashierDeskRoute = CashierDeskRouteImport.update({
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ai-prediction': typeof AiPredictionRoute
   '/announce': typeof AnnounceRoute
+  '/book': typeof BookRoute
   '/cashier-desk': typeof CashierDeskRoute
   '/cashiers': typeof CashiersRoute
   '/dashboard': typeof DashboardRoute
@@ -101,6 +108,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ai-prediction': typeof AiPredictionRoute
   '/announce': typeof AnnounceRoute
+  '/book': typeof BookRoute
   '/cashier-desk': typeof CashierDeskRoute
   '/cashiers': typeof CashiersRoute
   '/dashboard': typeof DashboardRoute
@@ -116,6 +124,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/ai-prediction': typeof AiPredictionRoute
   '/announce': typeof AnnounceRoute
+  '/book': typeof BookRoute
   '/cashier-desk': typeof CashierDeskRoute
   '/cashiers': typeof CashiersRoute
   '/dashboard': typeof DashboardRoute
@@ -132,6 +141,7 @@ export interface FileRouteTypes {
     | '/'
     | '/ai-prediction'
     | '/announce'
+    | '/book'
     | '/cashier-desk'
     | '/cashiers'
     | '/dashboard'
@@ -146,6 +156,7 @@ export interface FileRouteTypes {
     | '/'
     | '/ai-prediction'
     | '/announce'
+    | '/book'
     | '/cashier-desk'
     | '/cashiers'
     | '/dashboard'
@@ -160,6 +171,7 @@ export interface FileRouteTypes {
     | '/'
     | '/ai-prediction'
     | '/announce'
+    | '/book'
     | '/cashier-desk'
     | '/cashiers'
     | '/dashboard'
@@ -175,6 +187,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AiPredictionRoute: typeof AiPredictionRoute
   AnnounceRoute: typeof AnnounceRoute
+  BookRoute: typeof BookRoute
   CashierDeskRoute: typeof CashierDeskRoute
   CashiersRoute: typeof CashiersRoute
   DashboardRoute: typeof DashboardRoute
@@ -207,6 +220,13 @@ declare module '@tanstack/react-router' {
       path: '/announce'
       fullPath: '/announce'
       preLoaderRoute: typeof AnnounceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cashier-desk': {
@@ -279,6 +299,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AiPredictionRoute: AiPredictionRoute,
   AnnounceRoute: AnnounceRoute,
+  BookRoute: BookRoute,
   CashierDeskRoute: CashierDeskRoute,
   CashiersRoute: CashiersRoute,
   DashboardRoute: DashboardRoute,
@@ -292,13 +313,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
