@@ -24,7 +24,7 @@ const nav = [
   { to: "/cashier-desk", label: "Cashier Desk", icon: UserRound },
   { to: "/tickets", label: "Ticket Generation", icon: Ticket },
   { to: "/ticket-print", label: "Printed Ticket", icon: Printer },
-  { to: "/display", label: "Display Screen", icon: MonitorPlay },
+  
   { to: "/announce", label: "Announcements", icon: Volume2 },
   { to: "/reports", label: "Reports", icon: BarChart3 },
   { to: "/ai-prediction", label: "AI Prediction", icon: BrainCircuit },
