@@ -12,6 +12,7 @@ import {
   Printer,
   MonitorPlay,
   Volume2,
+
   UserRound,
 } from "lucide-react";
 import type { ReactNode } from "react";
@@ -24,7 +25,8 @@ const nav = [
   { to: "/cashier-desk", label: "Cashier Desk", icon: UserRound },
   { to: "/tickets", label: "Ticket Generation", icon: Ticket },
   { to: "/ticket-print", label: "Printed Ticket", icon: Printer },
-  { to: "/display", label: "Display Screen", icon: MonitorPlay },
+
+  
   { to: "/announce", label: "Announcements", icon: Volume2 },
   { to: "/reports", label: "Reports", icon: BarChart3 },
   { to: "/ai-prediction", label: "AI Prediction", icon: BrainCircuit },
@@ -76,7 +78,17 @@ export function AppShell({
             );
           })}
         </nav>
-        <div className="border-t border-sidebar-border p-3">
+        <div className="space-y-1 border-t border-sidebar-border p-3">
+          <a
+            href="/display"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-sidebar-foreground/75 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+          >
+            <MonitorPlay className="size-4" />
+            Open Display Screen
+          </a>
+
           <Link
             to="/"
             className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-sidebar-foreground/75 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
