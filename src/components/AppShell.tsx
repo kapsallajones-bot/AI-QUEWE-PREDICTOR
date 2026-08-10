@@ -78,7 +78,17 @@ export function AppShell({
             );
           })}
         </nav>
-        <div className="border-t border-sidebar-border p-3">
+        <div className="space-y-1 border-t border-sidebar-border p-3">
+          <a
+            href="/display"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-sidebar-foreground/75 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+          >
+            <MonitorPlay className="size-4" />
+            Open Display Screen
+          </a>
+
           <Link
             to="/"
             className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-sidebar-foreground/75 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
