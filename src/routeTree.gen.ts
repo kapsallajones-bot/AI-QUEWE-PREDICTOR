@@ -17,6 +17,7 @@ import { Route as CashierDeskRouteImport } from './routes/cashier-desk'
 import { Route as CashiersRouteImport } from './routes/cashiers'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DisplayRouteImport } from './routes/display'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as QueueRouteImport } from './routes/queue'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as SettingsRouteImport } from './routes/settings'
@@ -63,6 +64,11 @@ const DisplayRoute = DisplayRouteImport.update({
   path: '/display',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QueueRoute = QueueRouteImport.update({
   id: '/queue',
   path: '/queue',
@@ -98,6 +104,7 @@ export interface FileRoutesByFullPath {
   '/cashiers': typeof CashiersRoute
   '/dashboard': typeof DashboardRoute
   '/display': typeof DisplayRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/queue': typeof QueueRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -113,6 +120,7 @@ export interface FileRoutesByTo {
   '/cashiers': typeof CashiersRoute
   '/dashboard': typeof DashboardRoute
   '/display': typeof DisplayRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/queue': typeof QueueRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -129,6 +137,7 @@ export interface FileRoutesById {
   '/cashiers': typeof CashiersRoute
   '/dashboard': typeof DashboardRoute
   '/display': typeof DisplayRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/queue': typeof QueueRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -146,6 +155,7 @@ export interface FileRouteTypes {
     | '/cashiers'
     | '/dashboard'
     | '/display'
+    | '/forgot-password'
     | '/queue'
     | '/reports'
     | '/settings'
@@ -161,6 +171,7 @@ export interface FileRouteTypes {
     | '/cashiers'
     | '/dashboard'
     | '/display'
+    | '/forgot-password'
     | '/queue'
     | '/reports'
     | '/settings'
@@ -176,6 +187,7 @@ export interface FileRouteTypes {
     | '/cashiers'
     | '/dashboard'
     | '/display'
+    | '/forgot-password'
     | '/queue'
     | '/reports'
     | '/settings'
@@ -192,6 +204,7 @@ export interface RootRouteChildren {
   CashiersRoute: typeof CashiersRoute
   DashboardRoute: typeof DashboardRoute
   DisplayRoute: typeof DisplayRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
   QueueRoute: typeof QueueRoute
   ReportsRoute: typeof ReportsRoute
   SettingsRoute: typeof SettingsRoute
@@ -257,6 +270,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DisplayRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/queue': {
       id: '/queue'
       path: '/queue'
@@ -304,6 +324,7 @@ const rootRouteChildren: RootRouteChildren = {
   CashiersRoute: CashiersRoute,
   DashboardRoute: DashboardRoute,
   DisplayRoute: DisplayRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
   QueueRoute: QueueRoute,
   ReportsRoute: ReportsRoute,
   SettingsRoute: SettingsRoute,

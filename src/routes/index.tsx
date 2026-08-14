@@ -97,9 +97,12 @@ function LoginPage() {
                 <Checkbox id="remember" defaultChecked />
                 Remember me
               </Label>
-              <button type="button" className="text-sm font-medium text-primary hover:underline">
+              <Link
+                to="/forgot-password"
+                className="text-sm font-medium text-primary hover:underline"
+              >
                 Forgot password?
-              </button>
+              </Link>
             </div>
 
             <Button asChild className="h-11 w-full text-sm font-semibold">
