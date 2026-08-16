@@ -1,3 +1,19 @@
+- [Key Features](#key-features)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#deployment)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
+
+
 # QueueFlow Pro
 
 1. Login Page
@@ -50,15 +66,27 @@ Design a professional bank reports page. Include report filters by date, cashier
 
 Design a desktop settings page for a bank queue system. Include settings for Voice Announcement, Speaker Volume, Queue Number Format, AI Prediction Settings, Ticket Printer Configuration, Database Backup, Theme Selection, User Management, and Security Settings. Professional banking interface with organized tabs and toggle switches.
 
-This project was built with [Lovable](https://lovable.dev).
 
-## Build with Lovable
+### Tech Stack <a name="tech-stack"></a>
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/783df83f-bf27-4271-94ff-14aa2fc67b2b).
+- HTML
+- CSS
+- node.js
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+### Key Features <a name="key-features"></a>
+- **A desktop responsive page with a minimum width of 375px**
+- **Well designed lovable template transformed to a real desktop app through codes**
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+In order to run this project you need:
+
+- Visual Studio Code
+- Web browser such as chrome
 
 ## Development
 
@@ -70,3 +98,14 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+## 👥 Authors <a name="authors"></a>
+
+👤 **KAPSALLA JONES & TEAM MATES**
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+I give thanks to cogisoft community for investing in me. I am looking forth to building more projects
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE.md) licensed.
